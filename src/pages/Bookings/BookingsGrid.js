@@ -1,18 +1,18 @@
-import {Fragment} from "react";
-import Spinner from "../UI/Spinner";
+import { Fragment } from "react";
+import Spinner from "../../components/Spinner";
 
-import {useBookings, useGrid} from "./bookingsHooks";
+import { useBookings, useGrid } from "./bookingsHooks";
 
-export default function BookingsGrid (
-  {week, bookable, booking, setBooking}
+export default function BookingsGrid(
+  { week, bookable, booking, setBooking }
 ) {
-  const {bookings, status, error} = useBookings(
+  const { bookings, status, error } = useBookings(
     bookable?.id, week.start, week.end
   );
 
-  const {grid, sessions, dates} = useGrid(bookable, week.start);
+  const { grid, sessions, dates } = useGrid(bookable, week.start);
 
-  function cell (session, date) {
+  function cell(session, date) {
     const cellData = bookings?.[session]?.[date]
       || grid[session][date];
 
@@ -53,27 +53,27 @@ export default function BookingsGrid (
         }
       >
         <thead>
-        <tr>
-          <th>
-            <span className="status">
-              <Spinner/>
-            </span>
-          </th>
-          {dates.map(d => (
-            <th key={d}>
-              {(new Date(d)).toDateString()}
+          <tr>
+            <th>
+              <span className="status">
+                <Spinner />
+              </span>
             </th>
-          ))}
-        </tr>
+            {dates.map(d => (
+              <th key={d}>
+                {(new Date(d)).toDateString()}
+              </th>
+            ))}
+          </tr>
         </thead>
 
         <tbody>
-        {sessions.map(session => (
-          <tr key={session}>
-            <th>{session}</th>
-            {dates.map(date => cell(session, date))}
-          </tr>
-        ))}
+          {sessions.map(session => (
+            <tr key={session}>
+              <th>{session}</th>
+              {dates.map(date => cell(session, date))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </Fragment>

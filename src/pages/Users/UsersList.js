@@ -13,7 +13,7 @@ export default function UsersList() {
   }, []);
 
   if (users === null) {
-    return <p><Spinner /> Loading users...</p>
+    return <div><Spinner /> Loading users...</div>
   }
 
   return (

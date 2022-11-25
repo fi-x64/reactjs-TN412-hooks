@@ -3,12 +3,11 @@ import WeekPicker from "../../components/WeekPicker";
 
 import { getWeek, shortISO } from "../../utils/date-wrangler";
 import { useBookingsParams, useBookings } from "./bookingsHooks";
-// import BookingsGridSlide from "./BookingsGridSlide";
-// import BookingDetails from "./BookingDetails";
+import BookingsGridSlide from "./BookingsGridSlide";
+import BookingDetails from "./BookingDetails";
 
 export default function Bookings({ bookable }) {
   const [booking, setBooking] = useState(null);
-
   const { date } = useBookingsParams();
   const week = getWeek(date);
   const weekStart = shortISO(week.start);
@@ -29,18 +28,18 @@ export default function Bookings({ bookable }) {
   return (
     <div className="bookings">
       <div>
-        {/* <BookingsGridSlide
+        <BookingsGridSlide
           week={week}
           bookable={bookable}
           booking={booking}
           setBooking={setBooking}
-        /> */}
+        />
       </div>
 
-      {/* <BookingDetails
+      <BookingDetails
         booking={selectedBooking || booking}
         bookable={bookable}
-      /> */}
+      />
     </div>
   );
 }

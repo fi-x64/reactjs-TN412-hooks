@@ -153,7 +153,7 @@ export function useSlide(bookable, week) {
   useEffect(() => {
     weekRef.current = weekStart;
   }, [weekStart]);
-
+  console.log("Check bookable & week: ", bookable, week);
   return useTransition(
     { bookable, week },
     item => `${item.bookable.id}_${shortISO(item.week.start)}`,

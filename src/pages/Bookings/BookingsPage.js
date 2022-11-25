@@ -36,9 +36,9 @@ export default function BookingsPage() {
         getUrl={getUrl}
       />
       <WeekPicker date={new Date()} />
-      {/* <Bookings
+      <Bookings
         bookable={bookable}
-      /> */}
+      />
     </main>
   );
 }
