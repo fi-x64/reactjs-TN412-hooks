@@ -5,6 +5,7 @@ import { shortISO } from "../../utils/date-wrangler";
 import { useBookingsParams } from "./bookingsHooks";
 
 import BookablesList from "../Bookables/BookablesList";
+import Bookings from "./Bookings";
 
 export default function BookingsPage() {
   const { data: bookables = [] } = useQuery(
@@ -35,6 +36,9 @@ export default function BookingsPage() {
         getUrl={getUrl}
       />
       <WeekPicker date={new Date()} />
+      {/* <Bookings
+        bookable={bookable}
+      /> */}
     </main>
   );
 }
